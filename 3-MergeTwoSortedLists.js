@@ -33,12 +33,37 @@
  */
 
 const mergeTwoLists = function(list1, list2) {
-  const array = [];
-  while (list1.value) {
-    array.push(list1.value)
-    list1 = list1.next;
+  // while loop
+  // compare first two values
+    // if list1.val > list2.val
+      // add list2.val to new list
+      // list2.next.val will be up next for comparison
+    // if list1.val < list2.val
+      // add list1.val to new list
+      // list1.next.val will be up next for comparison
+    // if list1.val === list2.val
+      // add both
+      // both next val will be next for comparison
+
+  let list = new ListNode();
+  let head = list;
+
+  while (list1 || list2) {
+    if (list1.val > list2.val) {
+      list.next
+    }
   }
 };
+
+/*
+Attempt 2: 8/31/2022
+-- min
+
+Could not solve
+
+Key Takeways:
+Need to review linked lists
+*/
 
 /*
 Attempt 1: 8/29/2022

@@ -19,18 +19,26 @@
 
 const maxProfit = (prices) => {
   let max = 0;
-
-  for (let i = prices.length - 1; i >= 0; i--) {
-    for (let j = 0; j < i; j++) {
-      let dif = prices[i] - prices[j]
-      if (dif > max) {
-        max = dif
-      }
+  let i = prices.length - 1;
+  let j = 0;
+  while (i > j) {
+    while (prices[i] - prices[j] > max) {
+      max = prices[j] - prices[j]
     }
   }
-
-  return max;
 }
+
+/*
+Attempt 2: 08/31/2022
+15:17 min
+
+Could not solve
+
+Key Takeways:
+Still a time complexity problem.
+Attempted while loops this time around
+Need a way to filter array before finding difference (?)
+*/
 
 /*
 Attempt 1: 8/29/2022

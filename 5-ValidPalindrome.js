@@ -25,16 +25,40 @@ s consists only of printable ASCII characters.
 */
 
 const isPalindrome = (s) => {
-  const lowerCase = s.toLowerCase()
-  const validString = lowerCase.split(' ');
-  const result = true;
+  const lower = s.toLowerCase();
+  const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+  let i = 0;
+  let j = 0;
+  let valid = '';
 
-  for (let i = 0; i < validString.length; i++) {
-    if (validString[i] === )
+  while (i < lower.length) {
+    if (alphabet.includes(lower[i])) {
+      valid += lower[i]
+    }
   }
 
+  while (j <= Math.floor(valid.length/2)) {
+    if (valid[j] !== valid[valid.length - j - 1]) {
+      return false
+    }
+    j++
+  }
   return true;
 }
+
+[0, 1, 2, 3, 4, 5]
+
+/*
+Attempt 2: 8/31/2022
+19:42 min
+
+Could not solve
+
+Key Takeways:
+On the right track with alphabet.includes()
+'terminate called after throwing an instance of 'std::bad_alloc'
+  what():  std::bad_alloc'
+*/
 
 /*
 Attempt 1: 8/29/2022

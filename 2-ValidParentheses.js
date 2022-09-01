@@ -23,20 +23,38 @@
 // s consists of parentheses only '()[]{}'.
 
 const isValid = (s) => {
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] === '(' && s[s.length - i] !== ')') {
-      return false;
-    }
-    if (s[i] === '[' && s[s.length - i] !== ']') {
-      return false;
-    }
-    if (s[i] === '{' && s[s.length - i] !== '}') {
-      return false;
-    }
-  }
+  let stack = [];
+  let index = 0;
+  let parentheses = ['()', '{}', '[]']
 
-  return true;
-}
+  while (index < s.length) {
+    stack.push(s[index])
+    index++;
+
+    let open = stack[stack.length - 2];
+    let close = stack[stack.length - 1];
+    let paren = open + close
+    if (parentheses.includes(paren)) {
+      stack.pop();
+      stack.pop()
+    };
+  };
+
+  return stack.length === 0;
+};
+
+/*
+Attempt 2: 8/31/2022
+04:27 min
+
+Runtime: 135 ms, faster than 10.98% of JavaScript online submissions for Valid Parentheses.
+Memory Usage: 42.1 MB, less than 83.47% of JavaScript online submissions for Valid Parentheses.
+
+Key Takeways:
+Remember data structures and decide which one to use (in this case stack)
+.includes() is useful
+This was ~4 hours after I watched a video.
+*/
 
 /*
 Attempt 1: 8/29/2022
