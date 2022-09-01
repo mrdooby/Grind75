@@ -24,29 +24,36 @@ Constraints:
 s consists only of printable ASCII characters.
 */
 
-const isPalindrome = (s) => {
-  const lower = s.toLowerCase();
-  const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-  let i = 0;
-  let j = 0;
-  let valid = '';
+var isPalindrome = function(s) {
+  const lower = s.toLowerCase()
+  const alphanumeric = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  let validString = '';
 
-  while (i < lower.length) {
-    if (alphabet.includes(lower[i])) {
-      valid += lower[i]
+  for (let i = 0; i < lower.length; i++) {
+    if (alphanumeric.includes(lower[i])) {
+      validString += lower[i]
     }
   }
 
-  while (j <= Math.floor(valid.length/2)) {
-    if (valid[j] !== valid[valid.length - j - 1]) {
-      return false
-    }
-    j++
+  if (validString === validString.split('').reverse().join('')) {
+    return true;
+  } else {
+     return false;
   }
-  return true;
-}
+};
 
-[0, 1, 2, 3, 4, 5]
+/*
+Attempt 3: 8/31/2022
+-- min
+
+Runtime: 164 ms, faster than 9.02% of JavaScript online submissions for Valid Palindrome.
+Memory Usage: 48.7 MB, less than 20.68% of JavaScript online submissions for Valid Palindrome.
+
+Key Takeways:
+On the right track with alphabet.includes()
+Read instructions carefully (included numbers as a string) --> add to alphanumeric reference
+Did not need to do a data structure, could've just reversed array and joined as string
+*/
 
 /*
 Attempt 2: 8/31/2022
