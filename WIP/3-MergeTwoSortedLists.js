@@ -33,26 +33,31 @@
  */
 
 const mergeTwoLists = function(list1, list2) {
-  // while loop
-  // compare first two values
-    // if list1.val > list2.val
-      // add list2.val to new list
-      // list2.next.val will be up next for comparison
-    // if list1.val < list2.val
-      // add list1.val to new list
-      // list1.next.val will be up next for comparison
-    // if list1.val === list2.val
-      // add both
-      // both next val will be next for comparison
-
   let list = new ListNode();
   let head = list;
 
-  while (list1 || list2) {
+  while (list1 && list2) {
     if (list1.val > list2.val) {
-      list.next
+      head.next = list2;
+      list2 = list.next;
+    } else if (list1.val < list2.val) {
+      head.next = list1;
+      list1 = list1.next;
+    } else {
+      head.next = list1;
+      head.next = list2;
+      list1 = list1.next;
+      list2 = list2.next;
+    }
+
+    if (!list1) {
+      head.next = list2;
+    }
+    if (!list2) {
+      head.next = list1;
     }
   }
+  return head.next;
 };
 
 /*

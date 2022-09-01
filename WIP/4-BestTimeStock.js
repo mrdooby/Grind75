@@ -18,12 +18,13 @@
 // 0 <= prices[i] <= 104
 
 const maxProfit = (prices) => {
-  let max = 0;
-  let i = prices.length - 1;
+  let i = 0;
   let j = 0;
-  while (i > j) {
-    while (prices[i] - prices[j] > max) {
-      max = prices[j] - prices[j]
+  let profit = 0;
+
+  for (i; i < prices.length; i++) {
+    if (prices[j] - prices[j] > profit) {
+      profit = prices[j] - prices[j];
     }
   }
 }
